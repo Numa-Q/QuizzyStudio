@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizzy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>Quizzy</h1>
+
+  <nav>
+    <ul class="navigation">
+      <li><a href="#home" class="active">Accueil</a></li>
+      <li><a href="#create">Créer un Quiz</a></li>
+      <li><a href="#view">Voir les Quiz</a></li>
+      <li><a href="#stats">Statistiques</a></li>
+    </ul>
+  </nav>
+
+  <div class="app-container" id="app">
+    <!-- Le contenu dynamique des pages s'affichera ici -->
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Quizzy - Version 1.5.0</p>
+  </footer>
+
+  <div id="toastContainer"></div> <!-- Conteneur pour les notifications toast -->
+
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

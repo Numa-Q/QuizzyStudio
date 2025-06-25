@@ -1,0 +1,479 @@
+
+
+/* Styles globaux */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Utilisation de la police Roboto */
+    padding: 20px; /* Ajout d'un padding global pour éviter que le contenu ne colle aux bords */
+    background: linear-gradient(135deg, #6e7dff, #b3e9ff);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la vue */
+    box-sizing: border-box; /* Inclut padding et border dans la taille totale de l'élément */
+}
+
+/* Navigation */
+nav {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px; /* Aligner avec la largeur max de app-container */
+    display: flex;
+    justify-content: center; /* Centrer les éléments de navigation */
+}
+
+.navigation {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Supprimer la marge par défaut de ul */
+    display: flex;
+    background: rgba(255, 255, 255, 0.7); /* Léger fond pour la nav */
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    gap: 15px; /* Espacement entre les liens */
+}
+
+.navigation li {
+    display: inline;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #6e7dff;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navigation a:hover, .navigation a.active { /* Style pour lien actif aussi */
+    color: #fff;
+    background-color: #6e7dff;
+}
+
+/* Titre */
+h1 {
+    font-size: 2.5rem;
+    color: #fff; /* Couleur blanche pour contraster avec le fond */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Légère ombre pour lisibilité */
+    margin-top: 20px; /* Marge en haut pour le titre */
+    margin-bottom: 20px;
+}
+
+/* Conteneur de l'application */
+.app-container {
+    background: rgba(255, 255, 255, 0.85); /* Effet glassmorphism légèrement plus opaque */
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+    border-radius: 15px;
+    padding: 25px; /* Padding un peu augmenté */
+    max-width: 600px; /* Largeur maximale pour le mode desktop */
+    width: 100%; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espace avant le footer */
+}
+
+/* Formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    font-weight: 500; /* Rendre les labels un peu plus gras */
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="email"], 
+input[type="password"], 
+input[type="file"], /* Ajout de input file */
+textarea,
+select { /* Ajout de select aux styles communs */
+    padding: 12px; /* Padding augmenté pour inputs */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Coins plus arrondis */
+    margin-bottom: 15px;
+    font-size: 1rem;
+    box-sizing: border-box; /* S'assurer que padding ne déborde pas */
+    width: 100%; /* Faire en sorte que les inputs prennent toute la largeur */
+    background-color: #fff; /* Fond blanc pour select */
+}
+
+input[type="file"] {
+    padding: 8px; /* Padding spécifique pour input file */
+    background-color: #f9f9f9;
+}
+
+textarea {
+    resize: vertical; /* Permettre le redimensionnement vertical seulement */
+    min-height: 80px; /* Hauteur minimale pour textarea */
+}
+
+button {
+    padding: 12px 18px; /* Padding augmenté pour boutons */
+    background-color: #6e7dff;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Coins plus arrondis */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500; /* Texte du bouton en gras */
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Marge en haut du bouton */
+}
+
+button:hover {
+    background-color: #5a6bcf; /* Changement de couleur au survol */
+}
+
+button.remove-image-button {
+    background-color: #ff6b6b;
+    font-size: 0.9em;
+    padding: 6px 10px;
+    margin-top: 5px;
+    margin-bottom: 10px; /* Espace après le bouton */
+    width: auto; /* Ne prend pas toute la largeur */
+    align-self: flex-start; /* Aligner à gauche */
+}
+button.remove-image-button:hover {
+    background-color: #e05252;
+}
+
+
+/* Pied de page */
+footer {
+    text-align: center;
+    margin-top: auto; /* Pousse le footer en bas si le contenu est court */
+    padding: 15px 0;
+    color: #f0f0f0; /* Couleur de texte plus claire pour le footer */
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Styles spécifiques pour les éléments de l'app-container */
+.app-container h2 {
+    color: #333;
+    margin-top: 0; /* Enlever la marge du haut pour le premier titre dans le conteneur */
+}
+
+.app-container p {
+    line-height: 1.6; /* Améliorer la lisibilité des paragraphes */
+}
+
+/* Image Preview & Display */
+.image-preview-container {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#imagePreview {
+    max-width: 200px;
+    max-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    object-fit: contain; /* Assure que l'image entière est visible */
+    display: block; /* Pour que margin auto fonctionne si besoin */
+}
+
+.question-image-display {
+    max-width: 100%;
+    max-height: 250px; /* Limiter la hauteur en mode lecture/résultats */
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block; /* Centrer si width < 100% */
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    background-color: #f0f0f0; /* Fond pour les images transparentes */
+    border: 1px solid #eee;
+}
+
+.question-list-preview-image {
+    max-width: 60px;
+    max-height: 30px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+
+/* Toast Notifications */
+#toastContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px; 
+}
+
+.toast {
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateX(120%); 
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast-message {
+ flex-grow: 1;
+}
+
+.toast-close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  padding: 0 5px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.toast.toast-info {
+  background-color: #2196F3; 
+}
+
+.toast.toast-success {
+  background-color: #4CAF50; 
+}
+
+.toast.toast-error {
+  background-color: #f44336; 
+}
+
+.toast.toast-warning {
+  background-color: #ff9800; 
+}
+
+/* --- Styles pour les animations de célébration (petites) --- */
+#celebrationAnimationPlaceholder {
+  text-align: center;
+  margin-bottom: 15px;
+  min-height: 60px; /* Espace pour l'animation */
+  position: relative; 
+  overflow: hidden; 
+}
+
+.congrats-message {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ff69b4; 
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+/* Animation 1: Pop and Sparkle */
+.anim-pop-and-sparkle {
+  animation: popEffect 0.8s ease-out forwards;
+  position: relative; 
+}
+
+@keyframes popEffect {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.anim-pop-and-sparkle .sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #ffd700; 
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkleEffect 1s ease-out forwards;
+}
+
+@keyframes sparkleEffect {
+  0% { transform: scale(0) translateY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1.5) translateY(-40px); opacity: 0; }
+}
+
+.anim-pop-and-sparkle .s1 { top: 10%; left: 20%; animation-delay: 0.2s; background-color: #ff6347;}
+.anim-pop-and-sparkle .s2 { top: 20%; left: 80%; animation-delay: 0.4s; background-color: #32cd32;}
+.anim-pop-and-sparkle .s3 { top: 70%; left: 10%; animation-delay: 0.6s; background-color: #1e90ff;}
+.anim-pop-and-sparkle .s4 { top: 80%; left: 90%; animation-delay: 0.3s; background-color: #ff1493;}
+
+
+/* Animation 2: Gentle Shine */
+.anim-gentle-shine {
+  position: relative;
+  overflow: hidden; 
+  display: inline-block; 
+  padding: 5px 10px;
+  color: #6e7dff; 
+  animation: fadeInText 0.5s ease-out forwards;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.anim-gentle-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; 
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shineEffect 2.5s ease-in-out 0.5s forwards; 
+}
+
+@keyframes shineEffect {
+  0% { left: -100%; }
+  50% { left: 150%; } 
+  100% { left: 150%; } 
+}
+
+/* --- Styles pour l'animation de confettis en plein écran --- */
+#fullScreenCelebrationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999; /* Au-dessus de tout */
+  overflow: hidden;
+  pointer-events: none; /* Permet les clics à travers */
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px; /* Commence au-dessus de l'écran */
+  will-change: transform, opacity; /* Indication de performance pour le navigateur */
+  animation-name: fallAndRotate;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fallAndRotate {
+  0% {
+    transform: translateY(0) rotate(0deg) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) rotateX(360deg); 
+    opacity: 0;
+  }
+}
+
+/* Styles pour les boutons d'import/export */
+.global-quiz-actions {
+  display: flex;
+  flex-wrap: wrap; /* Permet le passage à la ligne sur mobile */
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.global-quiz-actions button {
+  padding: 8px 12px;
+  font-size: 0.9em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* Espace entre icône et texte */
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+.global-quiz-actions button:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+.global-quiz-actions button img {
+  filter: grayscale(30%); /* Désaturer un peu les icônes pour qu'elles s'accordent mieux */
+}
+
+#quizListDisplay .quiz-actions button img[alt="Exporter JSON"] {
+  /* Optionnel: pour différencier l'icône d'export individuel si besoin */
+}
+
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; 
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .navigation {
+        flex-direction: column; 
+        gap: 5px;
+        padding: 10px;
+    }
+    .navigation a {
+        display: block; 
+        text-align: center;
+    }
+
+    .app-container {
+        padding: 20px; 
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"],
+    textarea,
+    select, 
+    button {
+        font-size: 0.95rem; 
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+
+    .global-quiz-actions {
+        flex-direction: column; /* Empiler les boutons d'action globaux sur mobile */
+    }
+    .global-quiz-actions button {
+        width: 100%; /* Faire en sorte que les boutons prennent toute la largeur */
+        justify-content: center; /* Centrer le contenu du bouton */
+    }
+
+
+    #toastContainer {
+        right: 10px;
+        bottom: 10px;
+        max-width: calc(100% - 20px); 
+    }
+
+    .congrats-message {
+      font-size: 1.5em; /* Ajuster pour mobile */
+    }
+}
