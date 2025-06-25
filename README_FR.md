@@ -1,3 +1,5 @@
+# (QuizzyStudio = Quizzy + QuizzyPlay)
+
 # Quizzy - Application de Quiz Interactifs
 
 Quizzy est une application web conçue pour créer, gérer et jouer à des quiz interactifs. Elle permet aux utilisateurs de construire des quiz personnalisés avec divers types de questions, y compris du texte et des images, et fournit une plateforme pour tester leurs connaissances. Quizzy stocke toutes les données localement dans le navigateur de l'utilisateur en utilisant IndexedDB, garantissant une accessibilité hors ligne pour les quiz créés.
