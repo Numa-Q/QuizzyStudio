@@ -1,4 +1,4 @@
-# QuizzyStudio
+# (QuizzyStudio = Quizzy + QuizzyPlay)
 
 
 # Quizzy - Interactive Quiz Application
